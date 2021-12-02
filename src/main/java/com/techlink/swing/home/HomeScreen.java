@@ -3,12 +3,11 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.home;
+package com.techlink.swing.home;
 
-import com.techlink.auth.LoginForm;
-import com.techlink.auth.PasswordForm;
-import com.techlink.auth.RegisterForm;
-import com.techlink.students.StudentTable;
+import com.techlink.swing.auth.LoginForm;
+import com.techlink.swing.auth.RegisterForm;
+import com.techlink.swing.students.StudentTable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +17,7 @@ import java.awt.event.ActionListener;
 public class HomeScreen extends JFrame implements ActionListener {
 
     private final Container container;
-    private final JButton loginButton, registerButton, studentButton, forgotPasswordButton;
+    private final JButton loginButton, registerButton, studentButton;
 
     public HomeScreen() {
 
@@ -39,11 +38,6 @@ public class HomeScreen extends JFrame implements ActionListener {
         studentButton.addActionListener(this);
         container.add(studentButton);
 
-        forgotPasswordButton = new JButton("Change Password");
-        forgotPasswordButton.setBounds(100, 200, 150, 30);
-        forgotPasswordButton.addActionListener(this);
-        container.add(forgotPasswordButton);
-
         setLayout(null);
         setSize(500, 800);
         setTitle("Home");
@@ -62,8 +56,6 @@ public class HomeScreen extends JFrame implements ActionListener {
             new RegisterForm();
         } else if (studentButton.equals(source)) {
             new StudentTable();
-        } else if (forgotPasswordButton.equals(source)) {
-            new PasswordForm();
         }
     }
 }

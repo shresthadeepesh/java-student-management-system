@@ -27,7 +27,7 @@ public class Student {
 
     private String guardianName;
 
-    private Gender gender;
+    private String gender;
 
     private Date joinedAt;
 
@@ -35,7 +35,7 @@ public class Student {
 
     }
 
-    public Student(int id, String name, String email, String password, String address, String grade, Date dob, String phone, String guardianName, Gender gender, Date joinedAt) {
+    public Student(int id, String name, String email, String password, String address, String grade, Date dob, String phone, String guardianName, String gender, Date joinedAt) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -49,7 +49,7 @@ public class Student {
         this.joinedAt = joinedAt;
     }
 
-    public Student(String name, String email, String password, String address, String grade, Date dob, String phone, String guardianName, Gender gender, Date joinedAt) {
+    public Student(String name, String email, String password, String address, String grade, Date dob, String phone, String guardianName, String gender, Date joinedAt) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -102,7 +102,7 @@ public class Student {
         return guardianName;
     }
 
-    public Gender getGender() {
+    public String getString() {
         return gender;
     }
 
@@ -142,7 +142,7 @@ public class Student {
         this.guardianName = guardianName;
     }
 
-    public void setGender(Gender gender) {
+    public void setString(String gender) {
         this.gender = gender;
     }
 

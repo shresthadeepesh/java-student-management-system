@@ -3,7 +3,10 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.students;
+package com.techlink.swing.students;
+
+import com.techlink.students.Student;
+import com.techlink.students.StudentService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,8 +20,9 @@ public class StudentForm extends JFrame implements ActionListener {
     private final Container container;
     private final JButton submitButton;
     private final JLabel titleLabel, nameLabel, emailLabel, addressLabel, gradeLabel, dobLabel, phoneLabel, guardianNameLabel, genderLabel, joinedAtLabel, passwordLabel;
-    private final JTextField emailField, nameField, addressField, gradeField, dobField, phoneField, guardianNameField, genderField, joinedAtField;
+    private final JTextField emailField, nameField, addressField, gradeField, dobField, phoneField, guardianNameField, joinedAtField;
     private final JPasswordField passwordField;
+    private final JComboBox<String> genderComboBox;
 
     public StudentForm() {
 
@@ -89,15 +93,20 @@ public class StudentForm extends JFrame implements ActionListener {
         genderLabel.setBounds(100, 500, 120, 30);
         container.add(genderLabel);
 
-        genderField = new JTextField();
-        genderField.setBounds(200, 500, 200, 30);
-        container.add(genderField);
+        String[] genders = {"Male", "Female", "Others"};
+
+        genderComboBox = new JComboBox<String>(genders);
+        genderComboBox.setBounds(200, 500, 200, 30);
+        container.add(genderComboBox);
 
         joinedAtLabel = new JLabel("Joined At");
         joinedAtLabel.setBounds(100, 550, 120, 30);
         container.add(joinedAtLabel);
 
-        joinedAtField = new JTextField();
+        Date currentDate = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        joinedAtField = new JTextField(simpleDateFormat.format(currentDate));
         joinedAtField.setBounds(200, 550, 200, 30);
         container.add(joinedAtField);
 
@@ -133,7 +142,7 @@ public class StudentForm extends JFrame implements ActionListener {
             String grade = gradeField.getText();
             String phone = phoneField.getText();
             String guardianName = guardianNameField.getText();
-            String gender = genderField.getText();
+            String gender = (String) genderComboBox.getSelectedItem();
             Date dob = null;
             Date joinedAt = null;
             try {
@@ -146,11 +155,11 @@ public class StudentForm extends JFrame implements ActionListener {
             //validate fields
             if(name.isEmpty() || email.isEmpty() || password.isEmpty() || address.isEmpty() ||
                     grade.isEmpty() || phone.isEmpty() || guardianName.isEmpty() ||
-                    gender.isEmpty() || dob == null || joinedAt == null
+                    dob == null || joinedAt == null
             ) {
                 JOptionPane.showMessageDialog(this, "Please fill all the input fields.", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                Student student = new Student(name, email, address, password, grade, dob, phone, guardianName, Gender.MALE, joinedAt);
+                Student student = new Student(name, email, address, password, grade, dob, phone, guardianName, gender, joinedAt);
 
                 StudentService studentService = new StudentService();
                 studentService.save(student);
@@ -166,7 +175,7 @@ public class StudentForm extends JFrame implements ActionListener {
                 gradeField.setText("");
                 phoneField.setText("");
                 guardianNameField.setText("");
-                genderField.setText("");
+                genderComboBox.setSelectedItem("");
                 dobField.setText("");
                 joinedAtField.setText("");
             }

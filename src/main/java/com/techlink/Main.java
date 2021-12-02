@@ -5,7 +5,7 @@
 
 package com.techlink;
 
-import com.techlink.home.HomeScreen;
+import com.techlink.swing.home.HomeScreen;
 
 public class Main {
 

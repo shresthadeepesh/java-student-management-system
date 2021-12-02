@@ -3,9 +3,10 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.auth;
+package com.techlink.swing.auth;
 
-import com.techlink.students.StudentTable;
+import com.techlink.auth.AuthService;
+import com.techlink.swing.students.StudentTable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,7 @@ import java.awt.event.ActionListener;
 public class LoginForm extends JFrame implements ActionListener {
 
     private final Container container;
-    private final JButton login, register;
+    private final JButton login, register, forgotPasswordButton;
     private final JLabel emailLabel, passwordLabel, titleLabel;
     private final JTextField emailField;
     private final JPasswordField passwordField;
@@ -63,6 +64,11 @@ public class LoginForm extends JFrame implements ActionListener {
         register.addActionListener(this);
         container.add(register);
 
+        forgotPasswordButton = new JButton("Forgot Password");
+        forgotPasswordButton.setBounds(200, 350, 150, 30);
+        forgotPasswordButton.addActionListener(this);
+        container.add(forgotPasswordButton);
+
         setLayout(null);
         setSize(500, 800);
         setTitle("Login");
@@ -76,6 +82,8 @@ public class LoginForm extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == register) {
             new RegisterForm();
+        } else if(e.getSource() == forgotPasswordButton) {
+            new ForgotPasswordForm();
         } else if(e.getSource() == login) {
             String email = emailField.getText();
             String password = new String(passwordField.getPassword());

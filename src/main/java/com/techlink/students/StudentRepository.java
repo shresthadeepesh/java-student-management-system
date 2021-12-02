@@ -202,7 +202,7 @@ public class StudentRepository {
             Date dob = resultSet.getDate("dob");
             String phone = resultSet.getString("phone");
             String guardianName = resultSet.getString("guardianName");
-            Gender gender = Gender.MALE;
+            String gender = resultSet.getString("gender");
             Date joinedAt = resultSet.getDate("joinedAt");
             Student student = new Student(id, name, email, password, address, grade, dob, phone, guardianName, gender, joinedAt);
             students.add(student);

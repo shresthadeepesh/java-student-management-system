@@ -3,8 +3,9 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.auth;
+package com.techlink.swing.auth;
 
+import com.techlink.auth.AuthService;
 import com.techlink.students.Student;
 
 import javax.swing.*;
@@ -13,18 +14,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Optional;
 
-public class PasswordForm extends JFrame implements ActionListener {
+public class ForgotPasswordForm extends JFrame implements ActionListener {
     private final Container container;
-    private final JButton submtButton;
+    private final JButton submitButton;
     private final JLabel emailLabel, passwordLabel, confirmPasswordLabel, oldPasswordLabel, titleLabel;
     private final JTextField emailField;
     private final JPasswordField passwordField, confirmPasswordField, oldPasswordField;
 
-    public PasswordForm() {
+    public ForgotPasswordForm() {
 
         container = getContentPane();
 
-        titleLabel = new JLabel("Change password");
+        titleLabel = new JLabel("Forgot password");
         titleLabel.setFont(new Font("Serif", Font.BOLD, 25));
         titleLabel.setBounds(200, 50, 200, 30);
         container.add(titleLabel);
@@ -64,14 +65,14 @@ public class PasswordForm extends JFrame implements ActionListener {
         confirmPasswordField.setEchoChar('*');
         container.add(confirmPasswordField);
 
-        submtButton = new JButton("Submit");
-        submtButton.setBounds(200, 400, 120, 30);
-        submtButton.addActionListener(this);
-        container.add(submtButton);
+        submitButton = new JButton("Submit");
+        submitButton.setBounds(200, 400, 120, 30);
+        submitButton.addActionListener(this);
+        container.add(submitButton);
 
         setLayout(null);
         setSize(500, 800);
-        setTitle("Register");
+        setTitle("Forgot Password");
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -80,7 +81,7 @@ public class PasswordForm extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == submtButton) {
+        if(e.getSource() == submitButton) {
             String email = emailField.getText();
             String oldPassword = new String(oldPasswordField.getPassword());
             String newPassword = new String(passwordField.getPassword());

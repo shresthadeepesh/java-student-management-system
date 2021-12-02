@@ -3,8 +3,9 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.auth;
+package com.techlink.swing.auth;
 
+import com.techlink.auth.AuthService;
 import com.techlink.students.Student;
 
 import javax.swing.*;
