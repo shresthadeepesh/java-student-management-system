@@ -18,7 +18,7 @@ public class StudentRepository {
     private final Connection connection;
 
     public StudentRepository() {
-        connection = new Connect().getConnection();
+        connection = Connect.getConnection();
     }
 
     public List<Student> all() {
@@ -30,6 +30,7 @@ public class StudentRepository {
             students.addAll(this.mapToStudent(resultSet));
 
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while fetching all students!");
             e.printStackTrace();
         }
 
@@ -46,6 +47,7 @@ public class StudentRepository {
                 return Optional.of(students.get(0));
             }
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while fetching a students!");
             e.printStackTrace();
         }
 
@@ -68,6 +70,7 @@ public class StudentRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while inserting a new student!");
             e.printStackTrace();
         }
 
@@ -91,6 +94,7 @@ public class StudentRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while updating an existing student!");
             e.printStackTrace();
         }
 
@@ -104,6 +108,7 @@ public class StudentRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while deleting an existing student!");
             e.printStackTrace();
         }
 
@@ -122,6 +127,7 @@ public class StudentRepository {
                 return Optional.of(students.get(0));
             }
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while logging the user!");
             e.printStackTrace();
         }
 
@@ -144,6 +150,7 @@ public class StudentRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while updating an existing student!");
             e.printStackTrace();
         }
 
@@ -158,6 +165,7 @@ public class StudentRepository {
 
             statement.executeUpdate();
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while updating the user password!");
             e.printStackTrace();
         }
 
@@ -174,6 +182,7 @@ public class StudentRepository {
                 return Optional.of(students.get(0));
             }
         } catch (SQLException e) {
+            System.out.println("Oops! Something went wrong, while fetching the user!");
             e.printStackTrace();
         }
 

@@ -11,17 +11,25 @@ import java.sql.SQLException;
 
 public class Connect {
 
-    private Connection connection;
+    private static Connection connection;
 
-    public Connect() {
+     static {
+         String url = "jdbc:mysql://localhost:3306";
+         String dbName = "student-management";
+         String user = "root";
+         String password = "";
+         String connectionUrl = String.format("%s/%s", url,  dbName);
+
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/student-management", "root", "");
+            connection = DriverManager.getConnection(connectionUrl, user, password);
+            System.out.println("Database has been connected successfully.");
         } catch (SQLException e) {
+            System.out.println("Database connection failed.");
             e.printStackTrace();
         }
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
 
