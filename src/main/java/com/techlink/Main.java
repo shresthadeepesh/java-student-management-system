@@ -5,11 +5,11 @@
 
 package com.techlink;
 
-import com.techlink.swing.home.HomeScreen;
+import com.techlink.swing.home.InitialScreen;
 
 public class Main {
 
     public static void main(String[] args) {
-        new HomeScreen();
+        new InitialScreen();
     }
 }

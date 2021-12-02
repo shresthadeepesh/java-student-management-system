@@ -6,7 +6,7 @@
 package com.techlink.swing.auth;
 
 import com.techlink.auth.AuthService;
-import com.techlink.swing.students.StudentTable;
+import com.techlink.swing.home.HomeScreen;
 
 import javax.swing.*;
 import java.awt.*;
@@ -96,7 +96,7 @@ public class LoginForm extends JFrame implements ActionListener {
                 if(authService.authenticate(email, password)) {
                     JOptionPane.showMessageDialog(this, "You have successfully logged in.", "Success", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
-                    new StudentTable();
+                    new HomeScreen(email);
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid email or password.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

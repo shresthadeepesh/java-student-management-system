@@ -6,7 +6,6 @@
 package com.techlink.swing.home;
 
 import com.techlink.swing.auth.LoginForm;
-import com.techlink.swing.auth.RegisterForm;
 import com.techlink.swing.students.StudentTable;
 
 import javax.swing.*;
@@ -16,25 +15,32 @@ import java.awt.event.ActionListener;
 
 public class HomeScreen extends JFrame implements ActionListener {
 
+    private final JLabel titleLabel, authLabel;
     private final Container container;
-    private final JButton loginButton, registerButton, studentButton;
+    private final JButton studentButton, logoutButton;
 
-    public HomeScreen() {
+    public HomeScreen(String email) {
 
         container = getContentPane();
 
-        loginButton = new JButton("Login");
-        loginButton.setBounds(100, 100, 100, 30);
-        loginButton.addActionListener(this);
-        container.add(loginButton);
+        titleLabel = new JLabel("Welcome to Student Management System");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        titleLabel.setForeground(Color.BLUE);
+        titleLabel.setBounds(50, 50, 400, 30);
+        container.add(titleLabel);
 
-        registerButton = new JButton("Register");
-        registerButton.setBounds(200, 100, 100, 30);
-        registerButton.addActionListener(this);
-        container.add(registerButton);
+        authLabel = new JLabel(email);
+        authLabel.setFont(new Font("Arial", Font.BOLD, 10));
+        authLabel.setBounds(300, 100, 400, 30);
+        container.add(authLabel);
+
+        logoutButton = new JButton("Logout");
+        logoutButton.setBounds(300, 150, 100, 15);
+        logoutButton.addActionListener(this);
+        container.add(logoutButton);
 
         studentButton = new JButton("Students");
-        studentButton.setBounds(300, 100, 100, 30);
+        studentButton.setBounds(100, 200, 80, 20);
         studentButton.addActionListener(this);
         container.add(studentButton);
 
@@ -49,13 +55,12 @@ public class HomeScreen extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-        if (loginButton.equals(source)) {
-            new LoginForm();
-        } else if (registerButton.equals(source)) {
-            new RegisterForm();
-        } else if (studentButton.equals(source)) {
+         if (studentButton.equals(e.getSource())) {
             new StudentTable();
-        }
+        } else if(logoutButton.equals(e.getSource())) {
+             new LoginForm();
+             JOptionPane.showMessageDialog(null, "You have been logged out!", "Success", JOptionPane.INFORMATION_MESSAGE);
+             dispose();
+         }
     }
 }
