@@ -3,10 +3,10 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.auth;
+package com.techlink.common.auth;
 
-import com.techlink.students.Student;
-import com.techlink.students.StudentRepository;
+import com.techlink.common.students.Student;
+import com.techlink.common.students.StudentRepository;
 
 import java.util.Optional;
 

@@ -3,7 +3,7 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.database;
+package com.techlink.common.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

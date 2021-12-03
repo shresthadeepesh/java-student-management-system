@@ -5,8 +5,8 @@
 
 package com.techlink.swing.auth;
 
-import com.techlink.auth.AuthService;
-import com.techlink.students.Student;
+import com.techlink.common.auth.AuthService;
+import com.techlink.common.students.Student;
 
 import javax.swing.*;
 import java.awt.*;

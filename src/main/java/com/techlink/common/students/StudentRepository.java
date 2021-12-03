@@ -3,9 +3,9 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.students;
+package com.techlink.common.students;
 
-import com.techlink.database.Connect;
+import com.techlink.common.database.Connect;
 
 import java.sql.*;
 import java.util.ArrayList;

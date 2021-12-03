@@ -3,7 +3,7 @@
  * Github: https://github.com/JustaNormalDreamer
  */
 
-package com.techlink.students;
+package com.techlink.common.students;
 
 import java.util.Date;
 

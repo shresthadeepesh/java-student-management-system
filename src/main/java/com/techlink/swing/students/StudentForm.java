@@ -5,8 +5,8 @@
 
 package com.techlink.swing.students;
 
-import com.techlink.students.Student;
-import com.techlink.students.StudentService;
+import com.techlink.common.students.Student;
+import com.techlink.common.students.StudentService;
 
 import javax.swing.*;
 import java.awt.*;

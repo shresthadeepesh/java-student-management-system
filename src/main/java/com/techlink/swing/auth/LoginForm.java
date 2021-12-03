@@ -5,7 +5,7 @@
 
 package com.techlink.swing.auth;
 
-import com.techlink.auth.AuthService;
+import com.techlink.common.auth.AuthService;
 import com.techlink.swing.home.HomeScreen;
 
 import javax.swing.*;
