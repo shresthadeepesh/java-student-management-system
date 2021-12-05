@@ -17,5 +17,11 @@
 </head>
 <body>
     <h2>Home</h2>
+    <p>Welcome to the home page</p>
+    <a href="auth/login">Login</a>
+    <a href="auth/login">Register</a>
+
+    <a href="students">Manage Student</a>
+    <a href="students/add">Add Student</a>
 </body>
 </html>
