@@ -33,5 +33,8 @@
       </div>
       <input type="submit" value="Submit">
   </form>
+
+<a href="forgot-password">Forgot Password</a>
+
 </body>
 </html>

@@ -6,29 +6,20 @@
 package com.techlink.war.students;
 
 import com.techlink.common.students.Student;
-import com.techlink.common.students.StudentService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Date;
 import java.time.LocalDate;
 
 @WebServlet(name = "AddStudent", value = {"/students/add"})
-public class AddStudent extends HttpServlet {
-
-    private final StudentService studentService;
-
-    public AddStudent() {
-        studentService = new StudentService();
-    }
+public class AddStudent extends BaseStudentServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
