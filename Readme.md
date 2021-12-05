@@ -20,3 +20,13 @@ Contains an applet created using Swing, a GUI, and a database.
 - Add the war file to the Tomcat server.
 - Run the server.
 - Go to `http://localhost:8080/student_management_swing_war_exploded`.
+
+#### Available routes for Web Application
+- `/`: Home page.
+- `/students`: List of students.
+- `/students/add`: Add a student.
+- `/students/edit?id={id}`: Edit a student.
+- `/students/delete?id={id}`: Delete a student.
+- `/auth/login`: Login page.
+- `/auth/register`: Register page.
+- `/auth/forgot-password`: Forgot password page.
