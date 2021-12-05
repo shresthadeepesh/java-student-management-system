@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -28,12 +29,39 @@ public class ManageStudent extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        List<Student> students = studentService.all();
+        HttpSession session = request.getSession();
 
-        request.setAttribute("students", students);
+        if(session.getAttribute("email") == null) {
+            response.sendRedirect(request.getContextPath() + "/auth/login");
+        } else {
+            List<Student> students = studentService.all();
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/students/students.jsp");
-        requestDispatcher.forward(request, response);
+            request.setAttribute("students", students);
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/students/students.jsp");
+            requestDispatcher.forward(request, response);
+        }
     }
 
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+
+        if(session.getAttribute("email") == null) {
+            response.sendRedirect(request.getContextPath() + "/auth/login");
+        } else {
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            if(id > 0) {
+                Student student = new Student();
+                student.setId(id);
+                Student deleteStudent = studentService.delete(student);
+
+                if(deleteStudent != null) {
+                    request.setAttribute("message", "Student has been deleted successfully");
+                }
+            }
+
+            response.sendRedirect(request.getContextPath() + "/students");
+        }
+    }
 }

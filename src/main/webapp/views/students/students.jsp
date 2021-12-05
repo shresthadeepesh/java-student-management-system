@@ -16,6 +16,16 @@
 <head>
     <title>Manage Student</title>
 </head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td {
+        border: 1px solid black;
+        padding: 5px;
+    }
+</style>
 <body>
 
 <h2>Manage Student</h2>
@@ -28,6 +38,7 @@
         <td>Grade</td>
         <td>Age</td>
         <td>Joined At</td>
+        <td>Actions</td>
     </tr>
     </thead>
     <tbody>
@@ -37,10 +48,18 @@
     %>
 
     <tr>
-        <td>${student.id}</td>
-        <td>${student.name}</td>
-        <td></td>
-        <td></td>
+        <td><%= student.getId() %></td>
+        <td><%= student.getName() %></td>
+        <td><%= student.getGrade() %></td>
+        <td><%= student.getDob() %></td>
+        <td><%= student.getJoinedAt() %></td>
+        <td>
+            <a href="students/<%= student.getId() %>/edit">Edit</a>
+            <form action="students" method="POST">
+                <input type="hidden" name="id" value="<%= student.getId() %>"/>
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
     </tr>
 
     <% } %>
