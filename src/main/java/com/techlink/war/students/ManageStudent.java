@@ -6,12 +6,10 @@
 package com.techlink.war.students;
 
 import com.techlink.common.students.Student;
-import com.techlink.common.students.StudentService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,13 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "ManageStudent", value = {"/students"})
-public class ManageStudent extends HttpServlet {
-
-    private final StudentService studentService;
-
-    public ManageStudent() {
-        studentService = new StudentService();
-    }
+public class ManageStudent extends BaseStudentServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 

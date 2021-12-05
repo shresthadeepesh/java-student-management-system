@@ -54,7 +54,7 @@
         <td><%= student.getDob() %></td>
         <td><%= student.getJoinedAt() %></td>
         <td>
-            <a href="students/<%= student.getId() %>/edit">Edit</a>
+            <a href="students/edit?id=<%= student.getId() %>">Edit</a>
             <form action="students" method="POST">
                 <input type="hidden" name="id" value="<%= student.getId() %>"/>
                 <input type="submit" value="Delete"/>
