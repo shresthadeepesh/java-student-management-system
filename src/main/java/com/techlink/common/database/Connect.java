@@ -21,11 +21,14 @@ public class Connect {
          String connectionUrl = String.format("%s/%s", url,  dbName);
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(connectionUrl, user, password);
             System.out.println("Database has been connected successfully.");
         } catch (SQLException e) {
             System.out.println("Database connection failed.");
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Driver not found.");
         }
     }
 
