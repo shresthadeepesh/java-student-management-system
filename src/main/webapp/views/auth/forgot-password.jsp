@@ -21,7 +21,7 @@
 
 <h3 class=""><% request.getAttribute("errors"); %></h3>
 
-<form action="forgot-password" method="POST">
+<form action="${pageContext.request.contextPath}/auth/forgot-password" method="POST">
     <div>
         <%--@declare id="email"--%>
         <label for="email">Email Address</label>
