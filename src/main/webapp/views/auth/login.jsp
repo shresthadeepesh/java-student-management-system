@@ -20,7 +20,7 @@
 
   <h3 class=""><% request.getAttribute("errors"); %></h3>
 
-  <form action="login" method="POST">
+  <form action="${pageContext.request.contextPath}/auth/login" method="POST">
       <div>
           <%--@declare id="email"--%>
           <label for="email">Email Address</label>
@@ -34,7 +34,7 @@
       <input type="submit" value="Submit">
   </form>
 
-<a href="forgot-password">Forgot Password</a>
+<a href="${pageContext.request.contextPath}/auth/forgot-password">Forgot Password</a>
 
 </body>
 </html>

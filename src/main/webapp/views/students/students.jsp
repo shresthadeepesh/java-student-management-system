@@ -54,8 +54,9 @@
         <td><%= student.getDob() %></td>
         <td><%= student.getJoinedAt() %></td>
         <td>
-            <a href="students/edit?id=<%= student.getId() %>">Edit</a>
-            <form action="students" method="POST">
+            <a href="${pageContext.request.contextPath}/students/view?id=<%= student.getId() %>">View</a>
+            <a href="${pageContext.request.contextPath}/students/edit?id=<%= student.getId() %>">Edit</a>
+            <form action="${pageContext.request.contextPath}/students" method="POST">
                 <input type="hidden" name="id" value="<%= student.getId() %>"/>
                 <input type="submit" value="Delete"/>
             </form>

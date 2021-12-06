@@ -19,11 +19,11 @@
     <h2>Home</h2>
     <p>Welcome to the home page</p>
     <% if(request.getSession().getAttribute("email") != null) { %>
-        <a href="students">Manage Student</a>
-        <a href="students/add">Add Student</a>
+        <a href="${pageContext.request.contextPath}/students">Manage Student</a>
+        <a href="${pageContext.request.contextPath}/students/add">Add Student</a>
     <%  } else { %>
-        <a href="auth/login">Login</a>
-        <a href="auth/register">Register</a>
+        <a href="${pageContext.request.contextPath}/auth/login">Login</a>
+        <a href="${pageContext.request.contextPath}/auth/register">Register</a>
     <% }  %>
 
 
